@@ -1,0 +1,47 @@
+
+<div [formGroup]="form" style="width: 30%">
+
+  <!-- Name -->
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name" #name>
+    </mat-form-field>
+  </div>
+
+  <!-- Surname -->
+  <div>
+      <mat-form-field>
+      <mat-label>Surname</mat-label>
+        <input matInput placeholder="Surname" formControlName="surname" #surname>
+      </mat-form-field>
+  </div>
+
+  <!-- Address nested form -->
+  <div>
+      <app-address-form legend="Address" formControlName="address"></app-address-form>
+  </div>
+
+  <!-- File upload -->
+  <div>
+    <app-file-upload formControlName="thumbnail" requiredFileType="image/png"></app-file-upload>
+  </div>
+  
+  <div>
+      <!-- Lessons form Array -->
+      <app-lessons-form></app-lessons-form>
+  </div>
+
+
+
+  <div>
+    Form values: {{ form.value | json }}
+  </div>
+  <div>
+    Form errors: {{ form.errors | json }}
+  </div>
+  <div>
+    Form validity state: {{ form.valid }}
+  </div>
+
+</div>
